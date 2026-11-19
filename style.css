@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin: 15px; }
+input { padding: 4px; margin-right: 10px; }
+button { padding: 5px 10px; margin: 2px; cursor: pointer; }
+#map { height: 620px; margin-top: 6px; border: 1px solid gray; background: #fff; }
+#message { color: red; }
+#coords, #clicked { font-family: monospace; font-size: 13px; margin-top: 6px; }
+#clicked { color: #2a7de1; }
+
+/* node markers */
+.node-dot { width: 10px; height: 10px; border-radius: 50%; background: #666; border: 2px solid white; box-shadow: 0 0 3px #000; }
+.bldg-dot { width: 12px; height: 12px; border-radius: 3px; background: #2ecc71; border: 2px solid white; box-shadow: 0 0 3px #000; }
+.edge-label { background: white; border: 1px solid #888; padding: 0 4px; font-size: 12px; font-weight: bold; }
