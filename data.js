@@ -7,39 +7,58 @@ const SHOW_EDGE_LABELS = false;      // true = always show distances
 
 
 const INTERSECTIONS = [
-  ["i1",  336,  38, "right road, CAF door"],
-  ["i2",  336,  92, "top right corner"],
-  ["i3",  263,  92, "top road, below CAF"],
-  ["i4",  231,  92, "top road, above CICIT"],
-  ["i5",  209,  92, "top road, middle road starts"],
-  ["i6",  165,  92, "top road, below CBO (top)"],
-  ["i7",  122,  92, "top left corner"],
+  ["i1",  312, 40, "right road, CAF door"],
+  ["i2",  311, 92, "top right corner"],
+  ["i3",  236,  92, "top road, below CAF"],
+  ["i4",  202,  92, "top road, above CICIT"],
+  ["i5",  178,  92, "top road, middle road starts"],
+  ["i6",  131,  92, "top road, below CBO (top)"],
+  ["i7",  88, 92, "top left corner"],
   ["i8",  122, 151, "left road, CIT (upper) door"],
   ["i9",  122, 208, "left road meets middle road"],
   ["i10", 122, 269, "left road, CIT (lower) door"],
   ["i11", 122, 320, "left road meets bottom road"],
   ["i12", 122, 347, "left road, EDUC (small) door"],
   ["i13", 122, 387, "left road, INFIR door"],
-  ["i14", 172, 208, "middle road, CHUMMS door"],
-  ["i15", 220, 211, "middle road meets center road"],
-  ["i15.5", 239, 208,"rode between 15 & 16"],
-  ["i16", 300, 208, "middle road, LAB door"],
-  ["i17", 336, 208, "middle road meets right road"],
-  ["i18", 378, 208, "middle road, DORM door"],
-  ["i19", 423, 208, "far right top corner"],
+  ["i14", 172, 209, "middle road, CHUMMS door"],
+  ["i15", 209, 209, "middle road meets center road"],
+  ["i15.3", 219, 209, "between i15 and i15.5"],
+  ["i15.5", 240, 209,"rode between 15 & 16"],
+  ["i16", 300, 209, "middle road, LAB door"],
+  ["i17", 312, 209, "middle road meets right road"],
+  ["i18", 378, 209, "middle road, DORM door"],
+  ["i19", 401, 209, "far right top corner"],
   ["i20", 423, 305, "far right road, CIA door"],
-  ["i21", 423, 318, "far right bottom corner"],
-  ["i22", 218, 268, "center road, LIB door"],
+  ["i21", 401, 315, "far right bottom corner"],
+  ["i22", 219, 268, "center road, LIB door"],
   ["i23", 306, 268, "short road, CBO (middle) door"],
-  ["i24", 336, 268, "short road meets right road"],
+  ["i24", 337, 268, "short road meets right road"],
   ["i25", 201, 320, "bottom road, EDUC (large) door"],
-  ["i26", 226, 320, "bottom road meets center road + south loop"],
+  ["i26", 233, 320, "bottom road meets center road + south loop"],
   ["i27", 280, 320, "bottom road, Main building door"],
   ["i28", 336, 320, "bottom road meets right road"],
   ["i29", 383, 319, "bottom road, GYM door"],
   ["i30", 336, 361, "right road, CHS door"],
   ["i31", 231, 422, "south loop, bottom left"],
-  ["i32", 336, 422, "south loop, bottom right"]
+  ["i32", 336, 422, "south loop, bottom right"],
+  ["i33", 219, 240, "in front of unnamed b"],
+  ["i34", 167, 209, "lib"],
+  ["i35", 122, 283, "cit"],
+  ["i36", 181, 320, "infront of unnamed D"],
+  ["i37", 219, 320, "beside lib"],
+  ["i38", 236, 268, "back right main building"],
+  ["i39", 326, 268, "back left main building"],
+  ["i40", 238, 320, "front left main building"],
+  ["i41", 326, 320, "front right main building"],
+  ["i42", 280, 268, "back middle main building"],
+  ["i43", 336, 294, "main right"],
+  ["i44", 106, 92, "CBA (left)"],
+  ["i45", 155, 92, "CBA (right)"],
+  ["i46", 209, 136, "CHUMMS (right)"],
+  ["i47", 122, 126, "CHUMMS (left)"],
+  ["i48", 312, 176, "LAB (right)"],
+  ["i50", 209, 162, "CICT(road)"], 
+  ["i51", 231, 162, "CICT(back)"]
 ];
 
 
@@ -47,40 +66,42 @@ const INTERSECTIONS = [
 
 const ROADS = [
   // right road (top to bottom)
-  ["i1","i2",], ["i2","i17"], ["i17","i24"], ["i24","i28"], ["i28","i30"], ["i30","i32"],
+  ["i1","i2",], ["i2","i48"], ["i48", "i17"], ["i17","i24"], ["i24","i28"], ["i28","i30"], ["i30","i32"],
   // top road (left to right)
-  ["i7","i6",31.65], ["i6","i5"], ["i5","i4"], ["i4","i3"], ["i3","i2"],
+  ["i7","i44"], ["i44", "i6"], ["i6","i45"], ["i45", "i5"], ["i5","i4"], ["i4","i3"], ["i3","i2"],
   // left road (top to bottom)
-  ["i7","i8",49.34], ["i8","i9"], ["i9","i10"], ["i10","i11"], ["i11","i12"], ["i12","i13"],
+  ["i7","i47"], ["i7", "i8"], ["i8","i9"], ["i9", "i10"], ["i10", "i35"], ["i35","i11"], ["i11","i12"], ["i12","i13"],
   // middle road (left to right)
-  ["i9","i14"], ["i14","i15"], ["i15","i16"], ["i16","i17"], ["i17","i18"], ["i18","i19"],
+  ["i9","i34"], ["i34", "i14"], ["i14","i15"], ["i15", "i15.3"], ["i15.3", "i15.5"], ["i15.5","i16"], ["i16","i17"], ["i17","i18"], ["i18","i19"],
   // far right road
   ["i19","i20"], ["i20","i21"],
   // short road
-  ["i22","i23"], ["i23","i24"],
+  ["i22","i38"], ["i38", "i42"], ["i42", "i23"], ["i23","i39"], ["i39", "i24"],
   // center road (top to bottom)
-  ["i5","i15"], ["i15","i22"], ["i22","i26"],
+  ["i5","i46"], ["i46", "i15"], ["i15.3","i33"], ["i33","i22"], ["i22", "i37"],
   // bottom road (left to right)
-  ["i11","i25"], ["i25","i26"], ["i26","i27"], ["i27","i28"], ["i28","i29"], ["i29","i21"],
+  ["i11","i36"], ["i36", "i25"], ["i25", "i37"], ["i37","i26"], ["i26","i40"], ["i40", "i27"], ["i27","i41"], ["i41", "i28"], ["i28","i29"], ["i29","i21"],
   // south loop
-  ["i26","i31"], ["i31","i32"]
+  ["i26","i31"], ["i31","i32"],
+  
+  ["i51", "i50"]
 ];
 
 
 // 4. BUILDINGS (22): [name, x, y, connects to which intersection, optional distance in meters]
 
 const BUILDINGS = [
-  ["CAF",            311,  38, "i1"],
-  ["CBO (top)",      165,  84, "i6"],
-  ["CICIT",          231, 100, "i4"],
-  ["CIT (upper)",    117, 151, "i8"],
+  ["CAF",            285, 40, "i1"],
+  ["CBA (top)",      131, 86, "i6"],
+  ["CICT",           202, 97, "i4"],
+  ["CIT (upper)",    84, 149, "i8"],
   ["CHUMMS",         172, 146, "i14"],
   ["COS",            240, 200, "i15.5"],
   ["LAB",            300, 200, "i16"],
   ["DORM WOMEN",     378, 194, "i18"],
   ["CIA",            439, 305, "i20"],
   ["CIT (lower)",    119, 269, "i10"],
-  ["LIB",            191, 269, "i22"],
+  ["LIB",            191, 268, "i22"],
   ["CBO (middle)",   306, 260, "i23"],
   ["GYM",            383, 280, "i29"],
   ["Main building",  280, 309, "i27"],
@@ -88,10 +109,24 @@ const BUILDINGS = [
   ["CHS",            348, 361, "i30"],
   ["EDUC (small)",   111, 347, "i12"],
   ["INFIR",          111, 387, "i13"],
-  ["Unnamed A",      167, 217, "i14"],  // blue box above LIB
-  ["Unnamed B",      223, 240, "i22"],  // blue box left of CBO (middle)
-  ["Unnamed C",      130, 283, "i10"],  // tall blue box left of LIB
-  ["Unnamed D",      181, 313, "i25"]   // blue box below LIB
+  ["Unnamed A",      167, 217, "i34"],  // blue box above LIB
+  ["Unnamed B",      223, 240, "i33"],  // blue box left of CBO (middle)
+  ["Unnamed C",      130, 283, "i35"],  // tall blue box left of LIB
+  ["Unnamed D",      181, 313, "i36"],  // blue box below LIB
+  ["Main (front left)", 238, 309, "i40"],
+  ["Main (front right)", 326, 309, "i41"],
+  ["Main (back right)", 236, 275, "i38"],
+  ["Main (back middle)", 280, 275, "i42"],
+  ["Main (back right)", 326, 275, "i39"],
+  ["Main (right)", 331, 294, "i43"],
+  ["CAF (left)", 236, 69, "i3"],
+  ["CBA (left)", 106, 86, "i44"],
+  ["CBA (right)", 155, 86, "i45"],
+  ["CHUMMS (right)", 197, 136, "i46"],
+  ["CHUMMS (left)", 94, 139, "i47"],
+  ["Lab (right)", 304, 176, "i48"],
+  ["Dorm (women)", 319, 176, "i48"],
+  ["CICT (back)", 231, 159, "i51"]
 ];
 
 // Below: builds the lists the app uses. You don't need to edit this part.
